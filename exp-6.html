@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch API Example</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+
+        #user {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Random User Generator</h2>
+
+    <button onclick="getUser()">Get Random User</button>
+
+    <div id="user"></div>
+
+    <script>
+
+        async function getUser() {
+            try {
+
+                // Fetch data from API
+                let response = await fetch("https://randomuser.me/api/");
+
+                // Check response
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+
+                // Convert response to JSON
+                let data = await response.json();
+
+                // Access user information
+                let user = data.results[0];
+
+                // Display user details
+                document.getElementById("user").innerHTML =
+                    `
+                    <img src="${user.picture.medium}"><br><br>
+                    Name: ${user.name.first} ${user.name.last}<br>
+                    Email: ${user.email}<br>
+                    Country: ${user.location.country}
+                    `;
+
+            }
+            catch (error) {
+                console.log("Error fetching data:", error);
+                document.getElementById("user").innerHTML =
+                    "Error fetching user details!";
+            }
+        }
+
+    </script>
+
+</body>
+</html>.

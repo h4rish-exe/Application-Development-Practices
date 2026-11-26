@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Registration</title>
+<style>
+body {
+    font-family: Arial;
+    background-color: #eaf2ff;
+}
+.container {
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+h2 {
+    text-align: center;
+    color: navy;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    background: navy;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Student Registration</h2>
+<form onsubmit="return validateForm()">
+
+Name:<br>
+<input type="text" id="name" placeholder="Enter name">
+
+Email:<br>
+<input type="email" id="email" placeholder="Enter email">
+
+Password:<br>
+<input type="password" id="password" placeholder="Enter password">
+
+<input type="submit" value="Submit">
+</form>
+</div>
+
+<script>
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if(name == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+    if(email == "") {
+        alert("Email must be filled out");
+        return false;
+    }
+    if(password == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+    if(password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>

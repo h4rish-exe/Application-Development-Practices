@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Webpage</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: #eaf2ff;
+            margin-top: 150px;
+        }
+        h2 {
+            color: navy;
+        }
+        button {
+            padding: 10px 20px;
+            background: navy;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="heading">Welcome Students!</h2>
+
+    <button onclick="changeContent()">Click Me</button>
+
+    <script>
+        function changeContent() {
+            document.getElementById("heading").innerHTML =
+            "Welcome to JavaScript!";
+        }
+    </script>
+
+</body>
+</html>
